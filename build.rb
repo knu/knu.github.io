@@ -14,8 +14,8 @@ Dir["pages/*.md"].each do |md|
     title = yaml["title"] ||= basename
     # obsidian-github-publisher copies a link with a trailing slash
     yaml["permalink"] ||= "/#{URI.encode_uri_component(title)}/"
-    yaml["date"] ||= Time.parse(`git log --diff-filter=A --pretty="format:%ci" -- #{md.shellescape}`.chomp).iso8601
-    yaml["lastmod"] ||= Time.parse(`git log -1 --pretty="format:%ci" -- #{md.shellescape}`.chomp).iso8601
+    yaml["created"] ||= Time.parse(`git log --diff-filter=A --pretty="format:%ci" -- #{md.shellescape}`.chomp).iso8601
+    yaml["updated"] ||= Time.parse(`git log -1 --pretty="format:%ci" -- #{md.shellescape}`.chomp).iso8601
     YAML.dump(yaml)
   }
 
