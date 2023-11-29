@@ -10,7 +10,7 @@ Dir["pages/*.md"].each do |md|
   basename = File.basename(md, ".md")
 
   content.sub!(/\A---\n(?:.*\n)*(?=---\n)/) { |frontmatter|
-    yaml = YAML.load(frontmatter)
+    yaml = YAML.load(frontmatter, permitted_classes: [Date, Time])
     title = yaml["title"] ||= basename
     # obsidian-github-publisher copies a link with a trailing slash
     yaml["permalink"] ||= "/#{URI.encode_uri_component(title)}/"
