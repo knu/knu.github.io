@@ -14,6 +14,10 @@
       {{ content }}
 
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        {% if page.tags != blank -%}
+        Tags: {% for tag in page.tags %}{% unless forloop.first %}, {% endunless %}<span>{{ tag }}</span>{% endfor %}<br/>
+        {% endif -%}
+
         Created on {{ page.created | date: "%Y-%m-%d %H:%M:%S%z" }}<br/>
         Updated on {{ page.updated | date: "%Y-%m-%d %H:%M:%S%z" }}<br/>
         {%- assign pyear = page.date | date: "%Y" -%}
