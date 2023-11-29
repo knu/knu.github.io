@@ -2,6 +2,7 @@
 date: 2023-11-29
 created: 2023-11-29T14:32:43+09:00
 updated: 2023-11-29T16:16:56+09:00
+permalink: "/emacs-ghq-projectile/"
 tags:
   - Emacs
 share: true
